@@ -56,8 +56,8 @@ import (
 )
 
 var (
-	connectionLogger    = logger.New("connection")
-	asciiTotpRegex      = regexp.MustCompile(`^[0-9]{6}$`) // precompiled: exactly 6 ASCII digits
+	connectionLogger = logger.New("connection")
+	asciiTotpRegex   = regexp.MustCompile(`^[0-9]{6}$`) // precompiled: exactly 6 ASCII digits
 )
 
 const (
@@ -562,8 +562,8 @@ func (v *connection) defaultMessageHandler(bMsg msgs.BackEndMsg) (bool, error) {
 			err = v.authSendSHA512Password(msg.ExtraAuthData)
 		case common.AuthenticationOAuth:
 			err = v.authSendOAuthAccessToken()
-		case common.AuthenticationTOTP:
-			err = v.authSendTOTP()
+		// case common.AuthenticationTOTP:
+		// 	err = v.authSendTOTP()
 		default:
 			handled = false
 			err = fmt.Errorf("unsupported authentication scheme: %d", msg.Response)
@@ -839,7 +839,7 @@ func (v *connection) sync() error {
 }
 
 func (v *connection) LastNotice() string {
-    return v.lastNotice
+	return v.lastNotice
 }
 
 func (v *connection) lockSessionMutex() {
