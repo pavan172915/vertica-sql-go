@@ -331,6 +331,7 @@ func (s *stmt) QueryContextRaw(ctx context.Context, baseArgs []driver.NamedValue
 			s.copySTDIN(ctx)
 		default:
 			_, err := s.conn.defaultMessageHandler(bMsg)
+			// s.conn.defaultMessageHandler(bMsg)
 			return nil, err
 		}
 	}
