@@ -568,8 +568,9 @@ func (s *stmt) collectResults(ctx context.Context) (*rows, error) {
 		case *msgs.BEInitSTDINLoadMsg:
 			s.copySTDIN(ctx)
 		default:
-			connectionLogger.Warn("Collecting Results")
-			_, _ = s.conn.defaultMessageHandler(msg)
+			connectionLogger.Warn("Collecting Results otcad")
+			_, err := s.conn.defaultMessageHandler(msg)
+			return nil, err
 		}
 	}
 }

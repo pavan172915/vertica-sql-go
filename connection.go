@@ -577,7 +577,7 @@ func (v *connection) defaultMessageHandler(bMsg msgs.BackEndMsg) (bool, error) {
 		connectionLogger.Debug("%v", msg)
 	default:
 		handled = false
-		err = fmt.Errorf("unhandled otcad message: %v", msg)
+		err = fmt.Errorf("unhandled otcad-develop message: %v", msg)
 		connectionLogger.Warn("%v", err)
 	}
 
