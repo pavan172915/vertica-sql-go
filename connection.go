@@ -562,8 +562,8 @@ func (v *connection) defaultMessageHandler(bMsg msgs.BackEndMsg) (bool, error) {
 			err = v.authSendSHA512Password(msg.ExtraAuthData)
 		case common.AuthenticationOAuth:
 			err = v.authSendOAuthAccessToken()
-		// case common.AuthenticationTOTP:
-		// 	err = v.authSendTOTP()
+		case common.AuthenticationTOTP:
+			err = v.authSendTOTP()
 		default:
 			handled = false
 			err = fmt.Errorf("unsupported authentication scheme: %d", msg.Response)
