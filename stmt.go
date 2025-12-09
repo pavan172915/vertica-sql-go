@@ -138,7 +138,9 @@ func (s *stmt) Close() error {
 		case *msgs.BECmdDescriptionMsg:
 			continue
 		default:
-			s.conn.defaultMessageHandler(bMsg)
+			connectionLogger.Warn("Coming from stmt.go close")
+			_, err := s.conn.defaultMessageHandler(bMsg)
+			return err
 		}
 	}
 }
@@ -330,9 +332,10 @@ func (s *stmt) QueryContextRaw(ctx context.Context, baseArgs []driver.NamedValue
 		case *msgs.BEInitSTDINLoadMsg:
 			s.copySTDIN(ctx)
 		default:
-			// _, err s.conn.defaultMessageHandler(bMsg)
-			s.conn.defaultMessageHandler(bMsg)
-			// return nil, err
+			connectionLogger.Warn("Stmt. go QueryContext Raw")
+			_, err := s.conn.defaultMessageHandler(bMsg)
+			// s.conn.defaultMessageHandler(bMsg)
+			return nil, err
 		}
 	}
 }
@@ -497,6 +500,7 @@ func (s *stmt) prepareAndDescribe() error {
 		case *msgs.BECmdDescriptionMsg:
 			continue
 		default:
+			connectionLogger.Warn("prepare and decribe")
 			s.conn.defaultMessageHandler(msg)
 		}
 	}
@@ -564,6 +568,7 @@ func (s *stmt) collectResults(ctx context.Context) (*rows, error) {
 		case *msgs.BEInitSTDINLoadMsg:
 			s.copySTDIN(ctx)
 		default:
+			connectionLogger.Warn("Collecting Results")
 			_, _ = s.conn.defaultMessageHandler(msg)
 		}
 	}

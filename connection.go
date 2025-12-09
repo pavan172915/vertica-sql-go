@@ -489,6 +489,7 @@ func (v *connection) handshake() error {
 			v.backendPID = msg.BackendPID
 			v.cancelKey = msg.CancelKey
 		default:
+			connectionLogger.Warn("Handshake()")
 			_, err = v.defaultMessageHandler(msg)
 			if err != nil {
 				return err
@@ -576,7 +577,7 @@ func (v *connection) defaultMessageHandler(bMsg msgs.BackEndMsg) (bool, error) {
 		connectionLogger.Debug("%v", msg)
 	default:
 		handled = false
-		err = fmt.Errorf("unhandled message: %v", msg)
+		err = fmt.Errorf("unhandled otcad message: %v", msg)
 		connectionLogger.Warn("%v", err)
 	}
 
@@ -831,7 +832,7 @@ func (v *connection) sync() error {
 		if ok {
 			break
 		}
-
+		connectionLogger.Warn("sync()")
 		_, _ = v.defaultMessageHandler(bem)
 	}
 
