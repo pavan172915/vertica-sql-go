@@ -1,12 +1,12 @@
 # vertica-sql-go
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-orange.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Go Reference](https://pkg.go.dev/badge/github.com/vertica/vertica-sql-go.svg)](https://pkg.go.dev/github.com/vertica/vertica-sql-go)
-[![Go Report Card](https://goreportcard.com/badge/github.com/vertica/vertica-sql-go)](https://goreportcard.com/report/github.com/vertica/vertica-sql-go)
+[![Go Reference](https://pkg.go.dev/badge/github.com/pavan172915/vertica-sql-go.svg)](https://pkg.go.dev/github.com/pavan172915/vertica-sql-go)
+[![Go Report Card](https://goreportcard.com/badge/github.com/pavan172915/vertica-sql-go)](https://goreportcard.com/report/github.com/pavan172915/vertica-sql-go)
 
 vertica-sql-go is a native Go adapter for the Vertica (http://www.vertica.com) database.
 
-Please check out [release notes](https://github.com/vertica/vertica-sql-go/releases) to learn about the latest improvements.
+Please check out [release notes](https://github.com/pavan172915/vertica-sql-go/releases) to learn about the latest improvements.
 
 vertica-sql-go has been tested with Vertica 24.4.0 and Go 1.18/1.19/1.20/1.21/1.22.
 
@@ -14,12 +14,12 @@ vertica-sql-go has been tested with Vertica 24.4.0 and Go 1.18/1.19/1.20/1.21/1.
 
 Source code for vertica-sql-go can be found at:
 
-https://github.com/vertica/vertica-sql-go
+https://github.com/pavan172915/vertica-sql-go
 
 Alternatively you can use the 'go get' variant to install the package into your local Go environment.
 
 ```sh
-go get github.com/vertica/vertica-sql-go
+go get github.com/pavan172915/vertica-sql-go
 ```
 
 ## Usage
@@ -34,7 +34,7 @@ First ensure that you have the library checked out in your standard Go hierarchy
 import (
     "context"
     "database/sql"
-    "github.com/vertica/vertica-sql-go"
+    "github.com/pavan172915/vertica-sql-go"
 )
 ```
 
@@ -119,7 +119,7 @@ Custom TLS config(s) can be registered for TLS / SSL encrypted connection to the
 Here is an example of registering and using a `tls.Config`:
 
 ```Go
-import vertigo "github.com/vertica/vertica-sql-go"
+import vertigo "github.com/pavan172915/vertica-sql-go"
 
 // Register tls.Config
 rootCertPool := x509.NewCertPool()
@@ -360,8 +360,8 @@ import (
     "database/sql"
     "os"
 
-    _ "github.com/vertica/vertica-sql-go"
-    "github.com/vertica/vertica-sql-go/logger"
+    _ "github.com/pavan172915/vertica-sql-go"
+    "github.com/pavan172915/vertica-sql-go/logger"
 )
 
 func main() {

@@ -39,7 +39,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/vertica/vertica-sql-go/msgs"
+	"github.com/pavan172915/vertica-sql-go/msgs"
 )
 
 // FileCache stores rows from the wire and puts excess into a temporary file
